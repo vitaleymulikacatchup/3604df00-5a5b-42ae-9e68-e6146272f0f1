@@ -3,7 +3,6 @@ import { Noto_Sans } from "next/font/google";
 import "./globals.css";
 import { PostHogWrapper } from "@/components/PostHogWrapper";
 import Tag from "@/tag/Tag";
-import ThemeProvider from "@/providers/themeProvider/ThemeProvider";
 
 const notoSans = Noto_Sans({
   variable: "--font-noto-sans",
@@ -53,20 +52,7 @@ export default function RootLayout({
       <PostHogWrapper>
         <body className={notoSans.variable}>
           <Tag />
-          <ThemeProvider
-            defaultButtonVariant="icon-arrow"
-            defaultTextAnimation="entrance-slide"
-            borderRadius="soft"
-            contentWidth="large"
-            sizing="large"
-            background="circleGradient"
-            cardStyle="gradient-bordered"
-            primaryButtonStyle="diagonal-gradient"
-            secondaryButtonStyle="solid"
-            showBlurBottom={false}
-          >
-            {children}
-          </ThemeProvider>
+          {children}
         
         <script
           dangerouslySetInnerHTML={{

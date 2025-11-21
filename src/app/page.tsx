@@ -1,12 +1,13 @@
-"use client"
+"use client";
 
+import { ThemeProvider } from "@/providers/themeProvider/ThemeProvider";
 import NavbarLayoutFloatingInline from '@/components/navbar/NavbarLayoutFloatingInline';
 import HeroOverlay from '@/components/sections/hero/HeroOverlay';
 import SplitAbout from '@/components/sections/about/SplitAbout';
 import FeatureCardNine from '@/components/sections/feature/FeatureCardNine';
 import ProductCardOne from '@/components/sections/product/ProductCardOne';
 import PricingCardTwo from '@/components/sections/pricing/PricingCardTwo';
-import MetricCardTwo from '@/components/sections/metric/MetricCardTwo';
+import MetricCardThree from '@/components/sections/metrics/MetricCardThree';
 import TeamCardTwo from '@/components/sections/team/TeamCardTwo';
 import TestimonialCardTwo from '@/components/sections/testimonial/TestimonialCardTwo';
 import SocialProofOne from '@/components/sections/socialProof/SocialProofOne';
@@ -17,7 +18,18 @@ import { Award, BookOpen, Briefcase, Building, Code, DollarSign, Facebook, Githu
 
 export default function LandingPage() {
   return (
-    <>
+    <ThemeProvider
+      defaultButtonVariant="icon-arrow"
+      defaultTextAnimation="entrance-slide"
+      borderRadius="soft"
+      contentWidth="large"
+      sizing="large"
+      background="circleGradient"
+      cardStyle="gradient-bordered"
+      primaryButtonStyle="diagonal-gradient"
+      secondaryButtonStyle="solid"
+      showBlurBottom={false}
+    >
       <div id="nav" data-section="nav">
         <NavbarLayoutFloatingInline
           navItems={[
@@ -245,7 +257,7 @@ export default function LandingPage() {
       </div>
 
       <div id="metrics" data-section="metrics">
-        <MetricCardTwo
+        <MetricCardThree
           title="Our Impact in Numbers"
           description="See the success of our students and the growth of our community"
           tag="Success Stats"
@@ -256,23 +268,27 @@ export default function LandingPage() {
           metrics={[
             {
               id: "1",
-              value: "95%",
-              description: "Job Placement Rate"
+              icon: TrendingUp,
+              title: "Job Placement Rate",
+              value: "95%"
             },
             {
               id: "2",
-              value: "5,000+",
-              description: "Graduates Employed"
+              icon: Users,
+              title: "Graduates Employed",
+              value: "5,000+"
             },
             {
               id: "3",
-              value: "$75K",
-              description: "Average Starting Salary"
+              icon: DollarSign,
+              title: "Average Starting Salary",
+              value: "$75K"
             },
             {
               id: "4",
-              value: "200+",
-              description: "Partner Companies"
+              icon: Building,
+              title: "Partner Companies",
+              value: "200+"
             }
           ]}
         />
@@ -297,11 +313,11 @@ export default function LandingPage() {
               imageAlt: "Alex Rodriguez portrait",
               socialLinks: [
                 {
-                  icon: "Linkedin",
+                  icon: Linkedin,
                   url: "https://linkedin.com/in/alexrodriguez"
                 },
                 {
-                  icon: "Github",
+                  icon: Github,
                   url: "https://github.com/alexrodriguez"
                 }
               ]
@@ -315,11 +331,11 @@ export default function LandingPage() {
               imageAlt: "Sarah Chen portrait",
               socialLinks: [
                 {
-                  icon: "Linkedin",
+                  icon: Linkedin,
                   url: "https://linkedin.com/in/sarahchen"
                 },
                 {
-                  icon: "Twitter",
+                  icon: Twitter,
                   url: "https://twitter.com/sarahchen"
                 }
               ]
@@ -333,11 +349,11 @@ export default function LandingPage() {
               imageAlt: "David Kim portrait",
               socialLinks: [
                 {
-                  icon: "Linkedin",
+                  icon: Linkedin,
                   url: "https://linkedin.com/in/davidkim"
                 },
                 {
-                  icon: "Globe",
+                  icon: Briefcase,
                   url: "https://davidkim.dev"
                 }
               ]
@@ -589,6 +605,6 @@ export default function LandingPage() {
           ]}
         />
       </div>
-    </>
+    </ThemeProvider>
   );
 }
